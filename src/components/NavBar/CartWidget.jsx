@@ -1,8 +1,13 @@
 import React from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
+import "./carrito.css"
+
+
 
 function CartWidget() {
   return (
-   <div><p>X</p></div>
+    <a href="#" className='estilo-carrito'><FontAwesomeIcon icon={faCartShopping } /></a>
   )
 }
 
