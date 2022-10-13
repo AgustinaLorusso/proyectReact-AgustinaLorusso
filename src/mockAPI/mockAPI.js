@@ -10,10 +10,10 @@ const data=[
     },
     {
         id:2,
-        title:"Twisted Lies",
+        title:"November 9",
         price:5500,
         img:"https://3.bp.blogspot.com/-qLPGPSxG5jc/VsrPe-Eo-rI/AAAAAAAAGUc/Wcy_dIU1yR8/s1600/25111004.jpg",
-        detail:"Serie Harry Potter",
+        detail:"Publicado por Collen Hover",
         stock:5,
         category:"Preventa"
     },
@@ -28,10 +28,10 @@ const data=[
     },
     {
         id:4,
-        title:"November 9",
+        title:"Twisted Lies",
         price:1500,
         img:"https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/3494/9780349434285.jpg",
-        detail:"Publicado por Collen",
+        detail:"Publicado por Ana Huang",
         stock:5,
         category:"NuevosLanzamiento"
     }
