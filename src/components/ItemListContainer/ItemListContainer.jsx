@@ -2,17 +2,27 @@ import React,{useState,useEffect} from 'react';
 import './itemList.css'
 import {getLibros} from "../../mockAPI/mockAPI"
 import Card from '../Card/Card';
+import {useParams} from "react-router-dom"
+import {getBookByCategory} from "../../mockAPI/mockAPI"
+
 
  
 function ItemListContainer() {
   const [librosList, setLibrosList]= useState([]);
+  const {categoryId } = useParams();
 
-  useEffect(
-    ()=>{
+  useEffect(()=>{
+    if (categoryId === undefined){
       getLibros().then((data)=>{
         setLibrosList(data);     
       });
-    },[]
+    }
+    else{
+      getBookByCategory(categoryId).then((data) =>{
+        setLibrosList(data);
+      });
+    }   
+    },[categoryId]
   )
 
   return (
@@ -20,19 +30,20 @@ function ItemListContainer() {
         <section className="catalogo">
            {librosList.map((libros)=>{
             return (
-              <Card title={libros.title} img={libros.img} price={libros.price} detail={libros.detail}    />
+              <Card 
+              key={libros.id}
+              id={libros.id}
+              title={libros.title} 
+              img={libros.img} 
+              price={libros.price} 
+              detail={libros.detail}
+              />
             );
            })}
         </section>
     </main>
   )
- /* return (
-    <main className="main">
-        <section className="saludo">
-            <div><h5>{props.greeting}</h5></div>
-        </section>
-    </main>
-  )*/
+
 }
 
 export default ItemListContainer
