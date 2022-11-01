@@ -1,0 +1,12 @@
+.cart-style{
+    background-color: rgb(216, 210, 202);
+}
+.main{
+    background-color: rgb(250, 238, 224);
+}
+.empty{
+    height: 100vh;
+}
+.form{
+    display: none;
+}

@@ -1,45 +1,44 @@
 import React,{useState,useEffect} from 'react';
-import './itemList.css'
-import {getLibros} from "../../mockAPI/mockAPI"
-import Card from '../Card/Card';
+import {getLibros} from "../../services/firebase"
+import ItemList from './ItemList';
 import {useParams} from "react-router-dom"
-import {getBookByCategory} from "../../mockAPI/mockAPI"
+import {getBookByCategory} from "../../services/firebase"
+import Loader from '../Loader/Loader';
+import "./itemList.css"
+
 
 
  
 function ItemListContainer() {
   const [librosList, setLibrosList]= useState([]);
+  const [loading , setLoading]= useState(true);
   const {categoryId } = useParams();
 
   useEffect(()=>{
     if (categoryId === undefined){
       getLibros().then((data)=>{
-        setLibrosList(data);     
+        setLibrosList(data);
+        setLoading(false);     
       });
     }
     else{
       getBookByCategory(categoryId).then((data) =>{
         setLibrosList(data);
+        setLoading(false);
       });
     }   
     },[categoryId]
   )
 
   return (
-    <main className="main">
-        <section className="catalogo">
-           {librosList.map((libros)=>{
-            return (
-              <Card 
-              key={libros.id}
-              id={libros.id}
-              title={libros.title} 
-              img={libros.img} 
-              price={libros.price} 
-              detail={libros.detail}
-              />
-            );
-           })}
+    <main className="main px-5">
+        <section>  
+        { loading ?
+         <div className="load">
+           <Loader/>
+         </div>  :
+         <div className='py-5 px-5'><ItemList librosList={librosList}/></div>
+        }
         </section>
     </main>
   )

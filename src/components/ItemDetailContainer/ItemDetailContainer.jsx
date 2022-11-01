@@ -3,11 +3,14 @@
 import { useState, useEffect } from "react";
 import CardDetail from "./CardDetail";
 import { useParams } from "react-router-dom";
-import { getBookById } from "../../mockAPI/mockAPI"
+import { getBookById } from "../../services/firebase"
+import Loader from "../Loader/Loader";
+import "./cardDetail.css"
 
 
 function ItemDetailContainer() {
     const [book,setBook] = useState([]);
+    const [loading,setLoading]=useState(true);
 
     /*busca los parametros de la url*/
     const {id} = useParams();
@@ -17,18 +20,13 @@ function ItemDetailContainer() {
     useEffect(() => {
         getBookById(id).then((data) =>{
             setBook(data);
+            setLoading(false);
         });
     },[id]);
 
   return (
-    <div>
-        <CardDetail
-            title={book.title}
-            img={book.img}
-            price={book.price}
-            detail={book.detail}
-            stock={book.stock}
-        />  
+    <div className="main py-1">
+        {loading ? <div className="load"><Loader/> </div>: <div className="mb-5"><CardDetail book={book}/></div> } 
     </div>
   )
 }

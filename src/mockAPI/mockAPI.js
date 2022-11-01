@@ -14,7 +14,7 @@ const data=[
         price:5500,
         img:"https://3.bp.blogspot.com/-qLPGPSxG5jc/VsrPe-Eo-rI/AAAAAAAAGUc/Wcy_dIU1yR8/s1600/25111004.jpg",
         detail:"Publicado por Collen Hover",
-        stock:5,
+        stock:4,
         category:"Preventa"
     },
     {
@@ -23,7 +23,7 @@ const data=[
         price:3500,
         img:"https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4711/9781471156267.jpg",
         detail:"Publicado por Colleen Hover",
-        stock:5,
+        stock:3,
         category:"BestSeller"
     },
     {
@@ -32,7 +32,7 @@ const data=[
         price:1500,
         img:"https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/3494/9780349434285.jpg",
         detail:"Publicado por Ana Huang",
-        stock:5,
+        stock:2,
         category:"NuevosLanzamiento"
     }
 
@@ -40,7 +40,7 @@ const data=[
 
 export function getLibros(){
     return new Promise((resolve) => {
-        resolve(data)
+        setTimeout(() => resolve(data), 1500)
     })
 }
 
@@ -50,7 +50,7 @@ export function getBookById(idParams){
         let bookChoice = data.find((item) => {
             return item.id === Number(idParams)
         });
-        resolve(bookChoice)    
+        setTimeout(() => resolve(bookChoice), 500);    
     });
 }
 

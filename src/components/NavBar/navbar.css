@@ -1,8 +1,7 @@
 .header{
     width: auto;
     height: auto;
-    background-color: bisque;
-    padding: 1%;
+    background-color: rgb(224, 213, 200);
 }
 .navbar{
     width: 100%;
@@ -14,15 +13,16 @@
     width: 10%;
 }
 .estilo-navbar{
-    width: 75%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 .texto{
-    text-decoration: none;
+    text-decoration:none;
     color: black;
 }
 .estilo-carrito{
     width: 15%;
 }
+

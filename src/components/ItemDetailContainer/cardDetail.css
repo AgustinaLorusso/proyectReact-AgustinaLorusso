@@ -1,0 +1,17 @@
+.main{
+    background-color: rgb(250, 238, 224);
+   
+}
+.card-style{
+    background-color: rgb(216, 210, 202);
+}
+.cart-view{
+    color: black;
+    margin-left: 45%;
+    text-decoration: none;
+}
+.load{
+    margin-left: 45%;
+    padding-top: 10%;
+    height: 100vh;
+}
