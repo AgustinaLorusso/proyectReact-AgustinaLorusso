@@ -5,15 +5,10 @@ import CartDetail from './CartDetail';
 import {Link} from "react-router-dom"
 import "./cartStyle.css"
 import Button from '../Button/Button';
-import UserForm from '../UseForm/UserForm';
+
 
 function Cart() {
     const {cart,totalPrice} =useContext(cartContext);
-    let showForm=true;
-    function form(){
-      showForm=false;
-      console.log(showForm)
-    }
   
   return (
     <div className='main'>

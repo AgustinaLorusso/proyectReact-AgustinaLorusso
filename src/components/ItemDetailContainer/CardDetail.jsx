@@ -31,7 +31,7 @@ function CardDetail({book}) {
             <p>{book.detail}</p>
             <h5>${book.price}</h5>
             <p>{book.description}</p>
-            {((counter===0)&&(isInCart(cart,book.id)!=true)) ? (
+            {((counter===0)&&(isInCart(cart,book.id)!==true)) ? (
               <ItemCount
                addToCart={handleAddToCart}
                stock={book.stock}
